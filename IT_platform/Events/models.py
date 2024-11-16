@@ -21,7 +21,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateField(blank=True, null=True)
     organizer = models.CharField(max_length=50)
-    partners = models.ForeignKey(Organizer, max_length=150, null=True)
+    partners = models.ForeignKey(Organizer, max_length=150, null=True, on_delete=CASCADE)
     image = models.ImageField(upload_to='image/avatar/', null=True)
 
     def __str__(self):
