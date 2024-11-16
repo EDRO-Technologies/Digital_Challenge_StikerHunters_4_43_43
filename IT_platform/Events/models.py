@@ -15,7 +15,7 @@ class Organizer(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey("Category",max_length=50, on_delete=models.SET_NULL, null=True)
-    special = models.CharField(max_length=100)
+    special = models.ForeignKey("Special", max_length=100, on_delete=models.PROTECT)
     place = models.TextField()
     description = models.TextField()
     date = models.DateField(blank=True, null=True)
@@ -29,5 +29,7 @@ class Event(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
+class Special(models.Model):
+    name = models.CharField(max_length=50)
     def __str__(self):
         return self.name
