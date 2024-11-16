@@ -3,6 +3,15 @@ from django.db.migrations import CreateModel
 from django.db.models import Model, CASCADE
 from django.contrib.auth.models import User
 
+class Organizer(models.Model):
+    title = models.CharField(max_length=80, primary_key=True)
+    contact = models.TextField()
+    description = models.TextField()
+    image = models.ImageField(upload_to="image/organizator", null = True)
+
+    def __str__(self):
+        return self.title
+
 
 class Event(models.Model):
     title = models.CharField(max_length=255)
@@ -12,7 +21,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateField(blank=True, null=True)
     organizer = models.CharField(max_length=50)
-    partners = models.CharField(max_length=150, null=True)
+    partners = models.ForeignKey(Organizer, max_length=150, null=True, on_delete=CASCADE)
     image = models.ImageField(upload_to='image/avatar/', null=True)
 
     def __str__(self):
@@ -31,3 +40,7 @@ class Profile(models.Model):
     github = models.URLField()
     portfolio = models.ForeignKey(Event, on_delete=models.DO_NOTHING)
     image = models.ImageField(upload_to='image/event/', null=True)
+
+    def __str__(self):
+        return self.username
+
