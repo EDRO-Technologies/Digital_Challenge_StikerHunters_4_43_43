@@ -8,14 +8,6 @@ class EventSerializer(serializers.ModelSerializer):
                   "place", "description", "date",
                   "organizer", "partners", "image"]
 
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ["username", "name", "second_name",
-                  "surname", "birth", "is_organizer",
-                  "category", "special", "github",
-                  "portfolio", "image"]
-
 class OrganizerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organizer

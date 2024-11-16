@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from djoser.serializers import UserSerializer
 from rest_framework.generics import GenericAPIView, ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.viewsets import ViewSet
 
 from Events.models import Event
 from Events.serializers import EventSerializer
 
-
+"""
+Код для страничек создания/измения/добавления/удаления мероприятий
+"""
 class EventAPIList(ListAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
@@ -55,11 +55,11 @@ class EventAPIUpdate(UpdateAPIView):
                 return Response({"error": "Method PUT not allowed"})
 
             try:
-                instance = post.objects.get(pk=pk) # проверяем наличие записи
+                instance = Event.objects.get(pk=pk) # проверяем наличие записи
             except:
                 return Response({"error": "Object does not exists"})
 
-            serializer = postSerializer(data=requset.data, instance=instance)
+            serializer = EventSerializer(data=requset.data, instance=instance)
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response({"post": serializer.data})
