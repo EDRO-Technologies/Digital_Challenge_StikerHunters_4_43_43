@@ -5,7 +5,6 @@ from rest_framework.response import Response
 from Register.models import Profile
 from Register.serializers import ProfileSerializer
 
-
 class ProfileAPICreate(CreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
@@ -17,7 +16,6 @@ class ProfileAPICreate(CreateAPIView):
         serializer = ProfileSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)  # Проверка данных
         serializer.save()  # Метод create
-        # return Response({"post": serializer.data})
         context = {
             "data": serializer.data,
         }

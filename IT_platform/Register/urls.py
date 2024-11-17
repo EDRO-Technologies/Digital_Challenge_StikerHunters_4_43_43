@@ -5,6 +5,6 @@ app_name = "register"
 
 urlpatterns = [
     path('', regitser, name="register"),
-    re_path(r'^auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
     path('auth/', include('djoser.urls')),
 ]
