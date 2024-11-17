@@ -10,4 +10,5 @@ app_name = "event"
 urlpatterns = [
     path('', Index.as_view(), name="index"),
     path('api/', include(router.urls), name="view"),
+    path('test/', test, name="test"),
 ]
