@@ -5,13 +5,6 @@ from rest_framework.response import Response
 from Register.models import Profile
 from Register.serializers import ProfileSerializer
 
-class ProfileAPIList(ListAPIView):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
-
-    def get(self, request):
-        return render(request, "register.html")
-
 class ProfileAPICreate(CreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
@@ -26,4 +19,5 @@ class ProfileAPICreate(CreateAPIView):
         context = {
             "data": serializer.data,
         }
-        return redirect("ProfileAPIList", foo="bar")
+        return render(request, "secondauthtorization.html")
+
