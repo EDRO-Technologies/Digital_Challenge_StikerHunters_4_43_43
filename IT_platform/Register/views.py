@@ -1,16 +1,23 @@
-from django.shortcuts import render
-from rest_framework.generics import CreateAPIView
+from django.shortcuts import render, redirect
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.response import Response
 
 from Register.models import Profile
 from Register.serializers import ProfileSerializer
+
+class ProfileAPIList(ListAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+    def get(self, request):
+        return render(request, "register.html")
 
 class ProfileAPICreate(CreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
     def get(self, request):
-        return render(request, 'create_event.html')
+        return render(request, 'secondauthtorization.html')
 
     def post(self, request):
         serializer = ProfileSerializer(data=request.data)
@@ -19,7 +26,4 @@ class ProfileAPICreate(CreateAPIView):
         context = {
             "data": serializer.data,
         }
-        return render(request, 'register.html', context=context)
-
-def regitser(reqest):
-    return render(reqest, 'secondauthtorization.html')
+        return redirect("ProfileAPIList", foo="bar")
