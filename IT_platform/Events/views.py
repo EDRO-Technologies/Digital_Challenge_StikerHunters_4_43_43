@@ -2,13 +2,18 @@ from django.shortcuts import render
 from djoser.serializers import UserSerializer
 from rest_framework.generics import GenericAPIView, ListAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.response import Response
+from unicodedata import category
 
 from Events.models import Event
 from Events.serializers import EventSerializer
+from Register.models import Profile
 
-"""
-Код для страничек создания/измения/добавления/удаления мероприятий
-"""
+
+class EventFilter(ListAPIView):
+    serializer_class = EventSerializer
+
+    def get(self, request):
+        return render(request, "test.html")
 class EventAPIList(ListAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
