@@ -22,4 +22,4 @@ class ProfileAPICreate(CreateAPIView):
         return render(request, 'register.html', context=context)
 
 def regitser(reqest):
-    return render(reqest, 'register.html')
+    return render(reqest, 'secondauthtorization.html')
