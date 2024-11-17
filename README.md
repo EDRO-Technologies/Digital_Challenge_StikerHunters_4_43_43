@@ -9,3 +9,8 @@ cd IT_platform/
 ```shell
 pip install -r requirements.txt 
 ```
+Пропишите следующие команды по очереди
+```shell
+python manage.py migrate
+python manage.py runserver
+```
