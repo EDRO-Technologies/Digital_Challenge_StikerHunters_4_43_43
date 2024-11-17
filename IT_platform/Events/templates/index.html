@@ -18,6 +18,11 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
         />
+        <style>
+            .link-secondary:hover {
+                color: RGBA(12, 23, 34, var(--bs-link-opacity, 1)) !important;
+            }
+        </style>
         <title>Events</title>
     </head>
     <body
@@ -51,17 +56,23 @@
                         </svg>
                     </a>
                 </div>
-
+                <img
+                    class="float: right;"
+                    src="../../media/image/frontend/SurSU_new (2) (1).png"
+                    width="180"
+                    height="100"
+                    style="margin-left: -350px"
+                />
                 <ul
                     class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0"
                 >
                     <li>
-                        <a href="#" class="nav-link px-2 link-secondary"
-                            >Home</a
-                        >
+                        <a href="#" class="nav-link px-2">Личный кабинет</a>
                     </li>
                     <li>
-                        <a href="test/" class="nav-link px-2">List Events</a>
+                        <a href="test/" class="nav-link px-2 link-success"
+                            >List Events</a
+                        >
                     </li>
 
                     <li>
