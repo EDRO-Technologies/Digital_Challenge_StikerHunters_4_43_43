@@ -20,10 +20,20 @@
         />
         <title>Events</title>
     </head>
-    <body style="background-color: #303031">
+    <body
+        class="background"
+        style="
+            background-color: #303031;
+            background-image: url(../../media/image/frontend/фон.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            <!-- background-position-x: right; -->
+        "
+    >
         <div class="container">
             <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4"
+                style="margin-left: -100px"
             >
                 <div class="col-md-3 mb-2 mb-md-0">
                     <a
@@ -50,6 +60,10 @@
                             >Home</a
                         >
                     </li>
+                    <li>
+                        <a href="test/" class="nav-link px-2">List Events</a>
+                    </li>
+
                     <li>
                         <a href="eventcreate/" class="nav-link px-2"
                             >Create Events</a
@@ -89,10 +103,52 @@
                         style="
                             max-width: 1000px;
                             max-height: 200px;
-                            padding-bottom: 300px;
+                            padding-bottom: 400px;
                             background-color: #444444;
                         "
                     >
+                        <div style="margin-bottom: 20px">
+                            <img
+                                width="60"
+                                height="60"
+                                src="../../media/image/frontend/user_icon.png"
+                                style="
+                                    float: left;
+                                    margin-top: 10px;
+                                    margin-right: 10px;
+                                "
+                            />
+                            <a>ТЕг организатора</a>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline-success"
+                                style="
+                                    padding-bottom: 16px;
+                                    float: right;
+                                    margin-right: 10px;
+                                    color: #7fba27;
+                                    padding-top: 16px;
+                                    margin-top: 11px;
+                                "
+                            >
+                                Подписаться</button
+                            >right
+                            <img
+                                width="60"
+                                height="60"
+                                src="../../media/image/frontend/mail_icon.png"
+                                style="
+                                    float: right;
+                                    margin-top: 10px;
+                                    margin-right: 10px;
+                                "
+                            />
+                        </div>
+                        <div
+                            class="border"
+                            style="margin-top: -10px; margin-bottom: 15px"
+                        ></div>
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img
@@ -103,17 +159,14 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ obj.title }}</h5>
-                                    <p class="card-text">
+                                    <h5 class="card-title" style="color: white">
+                                        {{ obj.title }}
+                                    </h5>
+                                    <p class="card-text" style="color: white">
                                         This is a wider card with supporting
                                         text below as a natural lead-in to
                                         additional content. This content is a
                                         little bit longer.
-                                    </p>
-                                    <p class="card-text">
-                                        <small class="text-body-secondary"
-                                            >Last updated 3 mins ago</small
-                                        >
                                     </p>
                                 </div>
                             </div>
@@ -121,11 +174,17 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">О нас!!!</h4>
-                        <p>О нас</p>
+                    <div
+                        class="alert"
+                        role="alert"
+                        style="background-color: #444444"
+                    >
+                        <h4 class="alert-heading" style="color: white">
+                            О нас!!!
+                        </h4>
+                        <p style="color: white">О нас</p>
                         <hr />
-                        <p class="mb-0">
+                        <p class="mb-0" style="color: white">
                             Ну и корче говоим что хотим делаем что хоти и так
                             далее.
                         </p>

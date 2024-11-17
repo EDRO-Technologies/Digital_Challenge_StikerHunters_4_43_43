@@ -5,6 +5,7 @@ app_name = "event"
 
 urlpatterns = [
     path('', Index.as_view(), name="index"),
+    path('test/', test, name="test"),
     path('eventlist/', EventAPIList.as_view(), name="events"),
     path('eventcreate/', EventAPICreate.as_view(), name="events"),
     path('eventupdate/<int:pk>', EventAPIUpdate.as_view(), name="events"),

@@ -81,3 +81,5 @@ class Index(GenericAPIView):
 
 # def index(request):
 #     return render(request, 'index.html')
+def test(requst):
+    return render(requst, 'personal_account.html')
